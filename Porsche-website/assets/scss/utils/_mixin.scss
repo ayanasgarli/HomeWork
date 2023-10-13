@@ -1,0 +1,9 @@
+@mixin button{
+    padding: 10px 20px;
+    border: 1px black solid;
+    border-radius: 15px;
+}
+@mixin button_hover{
+    background-color: black;
+     color: white;
+}
