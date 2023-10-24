@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>To-Do App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        <input id="todo-input" type="text" placeholder="Add your new todo">
+        <span class="error-message" id="error-message">Please enter a valid to-do.</span>
+        <button id="add-button" class="btn btn-primary">Add</button>
+        <button id="clear-all-button" class="btn btn-danger">Clear All</button>
+        <div class="pending-tasks">
+            <span id="task-count">You have 0 pending tasks</span>
+        </div>
+        <div id="todo-list">
+        </div>
+        <p class="no-todo">No To-Do Item</p>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
