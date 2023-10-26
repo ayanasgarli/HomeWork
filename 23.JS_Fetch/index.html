@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+    <title>JS Fetch task</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Get Data from <a href="https://jsonplaceholder.typicode.com/users" target="_blank">API</a></h1>
+        <div class="text-center mt-3">
+            <button class="btn btn-warning" id="getDataButton">Get Data</button>
+            <button class="btn btn-info" id="sortByUsernameButton">Sort by Username</button>
+            <button class="btn btn-primary" id="sortByIdButton">Sort by ID  <i class="fa-solid fa-chevron-down"></i></button>
+            <button class="btn btn-danger" id="clearTableButton">Clear the Table</button>
+        </div>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Address/City</th>
+                    <th>Website</th>
+                    <th>Info</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <style>
+        .mt-3 thead tr {
+            background-color: #000;
+            color: #fff;
+        }
+        .learn-more {
+            border-color: #295d2b;
+            color: #295d2b;
+            background-color: transparent;
+            transition: 0.3s;
+        }
+        .learn-more:hover {
+            background-color: #338235;
+            color: #fff;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
