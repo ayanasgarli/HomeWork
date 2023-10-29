@@ -1,0 +1,91 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Milenaya Məktublar",
+      "genre": "Klassika",
+      "pageCount": 312,
+      "coverImg": "https://static.insales-cdn.com/images/products/1/7936/186703616/Kafka-Milena-Kapak-Esas-1.png",
+      "author": "Franz Kafka",
+      "year": 1952,
+      "description": "Frans Kafkanın aşiq olduğu çex jurnalisti Milena Yesenskayaya ünvanlanmış məktubları daxil edilib. 1920-ci ilin yazında o, F.Kafkanın nəsrini çex dilinə tərcümə etməyə başlayıb, onların yazışmaları və sevgi macəraları da elə o zamandan başlanğıc götürüb və cəmi bir neçə ay davam edib." 
+    },
+
+    {
+      "id": 2,
+      "name": "Bəlkə də bu, həqiqətdir…",
+      "genre": "Roman",
+      "pageCount": 256,
+      "coverImg": "https://static.insales-cdn.com/images/products/1/4806/171070150/c6dfecc44250efd8df4ca163b69a9cc1.jpg",
+      "author": "Mark Levi",
+      "year": 1999,
+      "description": "Mark Levi Fransanın məşhur yazıçılarından biridir. Onun əsərləri 30-dan çox xarici dilə tərcümə olunmuşdur və yüksək tiraj­larla satılır. Onun ilk romanı olan “Bəlkə də bu həqiqətdir” (film adı: “Yer ilə göy arasında”) əsəri öz qeyri-adi süjeti və möcüzələr yaratmağa qadir hisslərin gücü ilə insanı heyrətə salır."
+    },
+
+    {
+      "id": 3,
+      "name": "Cinayət və cəza",
+      "genre": "Klassika",
+      "pageCount": 640,
+      "coverImg": "https://m.media-amazon.com/images/I/81EcXiV-9WL._AC_UF1000,1000_QL80_.jpg",
+      "author": "Fyodor Dostoyevski",
+      "year": 1866,
+      "description": "Dostoyevski, tələsməmək lazım olduğunu düşündüyü yeni bir personajı ələ keçirmişdi. Rusiyanı, rus xalqını müşahidə etməklə Raskolnikovu onların içindən çıxarmışdı. Hekayədə hər tərəfdən pozulduğu açıq-aydın görünən ənənəvi yaxşılıq qavrayışının cəmiyyət tərəfindən kor-koranə qorunub saxlanmasından bəhs edilir."
+    },
+
+    {
+      "id": 4,
+      "name": "Anna Karenina",
+      "genre": "Klassika",
+      "pageCount": 856,
+      "coverImg": "https://www.qanun.az/images/news/compressed/2021-08-25-17-05-421629896742.png",
+      "author": "Lev Nikolayeviç Tolstoy",
+      "year": 1877,
+      "description": "Müəllif bir evin, bir ailə­nin problemindən başlayır və bütün Rusiyanın üzləşdiyi çətinliklərə toxu­nur. Hissləri dolaşıq düşmüş, həyatda azıb qalmış bir qadın haqqında ro­man. Onun hər şeyi var: əri, oğlu, evi, sərvəti, adı. Amma o heç nəyə bax­madan bunların hamısından imtina edir!"
+    },
+
+    {
+      "id": 5,
+      "name": "Altı nömrəli palata",
+      "genre": "Klassika",
+      "pageCount": 88,
+      "coverImg": "https://www.qanun.az/images/news/compressed/2021-09-14-10-15-061631600106.jpg",
+      "author": "Anton Çexov",
+      "year": 1892,
+      "description": "Çexovun “6 nömrəli palata” əsəri ictimai-fəlsəfi pro­blemləri iti şəkildə işıqlandıran xarakter daşıyır. Əsər vasitəsilə yazıçı bədii imkanlardan ustalıqla istifadə edərək, cəmiyyəti dağıdan ən əsas qüvvə olan insan şəx­siyyəti üzərində zorakılıq, hörmətsizlik, ona qarşı olan haqsızlıq və bəraət, cəmiyyətdə fərdin haqq-ədalət uğrunda mübarizəsi kimi mühüm problemləri aydınlaşdırmağa çalışır."
+    },
+
+    {
+      "id": 6,
+      "name": "Yalquzaq",
+      "genre": "Klassika",
+      "pageCount": 208,
+      "coverImg": "https://pictures.abebooks.com/isbn/9780805012477-us.jpg",
+      "author": "Herman Hesse",
+      "year": 1927,
+      "description": "Kitab, modernizmin insanlara aşıladığı homogenliyi, tək bir həqiqətin varlığını və bütöv digər standartları əlinin tərsi ilə itələyərək, post-modernizmin qapılarını üzümüzə açır. Müəllif, homogenliyin yerinə heterogenliyi, tək bir gerçəklik qarşısında müxtəlif rəyləri, standartlar yerinə olduqca fərqliləşməyi, bütövlük əvəzinə parçalanmağı gözə alaraq oxuyucuya post-modernist bir əsər təqdim etmişdir."
+    },
+
+    {
+      "id": 7,
+      "name": "Yüz ilin tənhalığı",
+      "genre": "Realizm, roman",
+      "pageCount": 486,
+      "coverImg": "https://bakubookcenter.az/get-product-image?fileId=6631&year=2018&month=08",
+      "author": "Qabriel Qarcia Markes",
+      "year": 1967,
+      "description":"“Yüz ilin tənhalığı” romanında Buendia nəslinin yaran­ma­sı, yük­sə­lişi, qürubu və məhvi əks etdirilmişdir. Bu nəslin tarixi – hər bir Buendia üzvünün taleyində bu və ya digər şəkildə təzahür edən tən­halıq hekayətidir. Tənhalıq, ailə üzvlərinin bir-birindən aralı düş­­məsi, onların bir-birini anlaya bilməmələri romanda, hə­qi­qətən, mifik xarakter daşıyır."
+    },
+
+    {
+      "id": 8,
+      "name": "Diplomat",
+      "genre": "Klassika",
+      "pageCount": 460,
+      "coverImg": "https://static.insales-cdn.com/images/products/1/4023/171069367/large_fa38926482fb0e1c09a73c92b155d063.jpg",
+      "author": "Ceyms Oldric",
+      "year": 1949,
+      "description": "Ceyms Oldricin “Diplomat” romanında 1940-cı illər İranında, o cümlədən Cənubi Azərbaycanda demokratik hərəkat zamanı böyük güclər arasındakı mənafe toqquşmaları təsvir edilib. İngilis yazıçısı Oldricin özü də peşəkar diplomat olub və əsərdəki baş qəhrəman Mak-Qreqor müəyyən mənada müəllifin özüdür."
+    }
+  ]
+}

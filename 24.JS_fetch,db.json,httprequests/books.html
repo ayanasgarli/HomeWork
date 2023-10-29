@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style/home.css">
+    <title>Books Page</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Weekend task</h1>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="main-content">
+    <input type="text" id="searchInput" placeholder="Search books">
+    <div id="noDataMessage" style="display: none; color: red;">No Such Data</div>
+    <button id="sortByYearButton">Sort by Year</button>
+    <div>
+    <label for="genreFilter">Filter by Genre:</label>
+    <select id="genreFilter">
+        <option value="all">All</option>
+        <option value="fantastic">Fantastic</option>
+        <option value="drama">Drama</option>
+        <option value="thriller">Thriller</option>
+        <option value="detective">Detective</option>
+        <option value="klassika">Klassika</option>
+    </select>
+</div>
+<button id="addBookButton">Add Book</button>
+<div id="addBookModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeAddBookModal">&times;</span>
+        <h2>Add a New Book</h2>
+        <form id="addBookForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required minlength="3">
+                <span class="error" id="nameError"></span>
+            </div>
+            <div>
+                <label for="pageCount">Page Count:</label>
+                <input type="number" id="pageCount" name="pageCount" required min="1" max="700">
+                <span class="error" id="pageCountError"></span>
+            </div>
+            <div>
+                <label for="coverImage">Cover Image URL:</label>
+                <input type="text" id="coverImage" name="coverImage" required>
+                <span class="error" id="coverImageError"></span>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+                <span class="error" id="authorError"></span>
+            </div>
+            <div>
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" min="0" max="2023">
+                <span class="error" id="yearError"></span>
+            </div>
+            <div>
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre">
+                    <option value="fantastic">Fantastic</option>
+                    <option value="drama">Drama</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="detective">Detective</option>
+                    <option value="science fiction">Science Fiction</option>
+                </select>
+            </div>
+            <div>
+                <button type="button" id="addBookSubmit" disabled>Add Book</button>
+            </div>
+        </form>
+    </div>
+</div>
+        <section class="books">
+            <div id="bookContainer" class="card-container">
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.8.0/dist/sweetalert2.all.min.js"></script>
+    <script src="./assets/books.js"></script>
+</body>
+</html>
+
