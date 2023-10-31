@@ -101,7 +101,7 @@ label {
     margin: 8px 0;
 }
 
-.edit-button, .delete-button {
+.edit-button, .delete-button, .add-basket-button, .info-button{
     background-color: #a041ae;
     color: white;
     border: none;
@@ -112,7 +112,7 @@ label {
     margin-top: 8px;
 }
 
-.edit-button:hover, .delete-button:hover {
+.edit-button:hover, .delete-button:hover, .add-basket-button:hover, .info-button:hover{
     background-color: purple;
 }
 

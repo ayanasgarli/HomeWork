@@ -1,7 +1,7 @@
-
-const bookContainer = document.getElementById("bookContainer");
-const BASE_URL = "http://localhost:3000";
+let bookContainer = document.getElementById("bookContainer");
+let BASE_URL = "http://localhost:3000";
 let books = []; 
+let basketCount = document.querySelector('.basket-count');
 
 fetch(BASE_URL + "/books")
     .then((response) => {
@@ -20,24 +20,79 @@ fetch(BASE_URL + "/books")
 function displayBooks(books) {
     bookContainer.innerHTML = "";
     books.forEach((book) => {
-        const card = document.createElement("div");
+        let card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
             <img src="${book.coverImg}" alt="${book.name}" />
             <h2 class="book-title">${book.name}</h2>
             <p><strong>Genre:</strong> ${book.genre}</p>
+            <p><strong>Price:</strong> ${book.price}</p>
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>Year:</strong> ${book.year}</p>
             <p><strong>Page Count:</strong> ${book.pageCount}</p>
             <p>${book.description}</p>
-            <button class="edit-button" data-book-id="${book.id}">Edit</button>
-            <button class="delete-button" data-book-id="${book.id}">Delete</button>
+            <button class="edit-button" data-book-id="${book.id}"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="delete-button" data-book-id="${book.id}"><i class="fa-solid fa-trash"></i></button>
+            <button class="info-button" data-book-id="${book.id}"><i class="fa-solid fa-circle-info"></i></i></button>
+            <button class="add-basket-button" data-book-id="${book.id}"><i class="fa-solid fa-basket-shopping"></i></button>
+
         `;
         bookContainer.appendChild(card);
     });
 
-    const editButtons = document.querySelectorAll(".edit-button");
-    const deleteButtons = document.querySelectorAll(".delete-button");
+    let editButtons = document.querySelectorAll(".edit-button");
+    let deleteButtons = document.querySelectorAll(".delete-button");
+    let infoButtons = document.querySelectorAll(".info-button");
+    let addBasketBtns = document.querySelectorAll(".add-basket-button");
+
+    addBasketBtns.forEach((button)=>{
+        button.addEventListener('click', function(){
+            fetch(BASE_URL+`/books/${this.id}`)
+            .then((res)=>res.json())
+            .then((book)=>{
+                if(JSON.parse(localStorage.getItem(`basket`))===null) {
+                    book.quantity = 1;
+                    localStorage.setItem('basket', JSON.stringify([book]))
+                    basketCount.textContent = JSON.parse(localStorage.getItem('basket')).length;
+                }
+                else{
+                    let card = JSON.parse(localStorage.getItem('basket'));
+                    let found = card.find((x)=> x.id==book.id);
+                    if(found) {
+                        found.quantity++;
+                        localStorage.setItem('basket',JSON.stringify([...card]));
+                    }
+                    else{
+                        book.quantity = 1;
+                        localStorage.setItem('basket',JSON.stringify([...card,product]));
+                        basketCount.textContent = JSON.parse(localStorage.getItem('basket')).length;
+                    }
+                }
+            })
+
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'The book added to cart',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+    }
+    )
+    
+
+
+    
+    infoButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            let bookId = event.target.getAttribute("data-book-id");
+            let book = books.find((b) => b.id === parseInt(bookId));
+            if (book) {
+                window.location.href = `detail.html?bookId=${book.id}`;
+            }
+        });
+    });
 
     editButtons.forEach((button) => {
         button.addEventListener("click", (e) => openEditModal(e));
@@ -103,22 +158,32 @@ function deleteBook(bookId) {
 }
 
 function openEditModal(event) {
-    const bookId = event.target.getAttribute("data-book-id");
+    let bookId = event.target.getAttribute("data-book-id");
 
     Swal.fire({
         title: "Edit Book",
         html: `
             <input id="editName" class="swal2-input" placeholder="Name">
+            <input id="editGenre" class="swal2-input" placeholder="Genre">
+            <input id="editPrice" class="swal2-input" placeholder="Price">
+            <input id="editPageCount" class="swal2-input" placeholder="Page Count">
+            <input id="editCoverImg" class="swal2-input" placeholder="Cover Image">
             <input id="editAuthor" class="swal2-input" placeholder="Author">
+            <input id="editYear" class="swal2-input" placeholder="Year">
             <input id="editDescription" class="swal2-input" placeholder="Description">
         `,
         showCancelButton: true,
         confirmButtonText: "Submit",
     }).then((result) => {
         if (result.isConfirmed) {
-            const editedBook = {
+            let editedBook = {
                 name: document.getElementById("editName").value,
+                genre: document.getElementById("editGenre").value,
+                price: document.getElementById("editPrice").value,
+                pageCount: document.getElementById("editPageCount").value,
+                coverImg: document.getElementById("editCoverImg").value,
                 author: document.getElementById("editAuthor").value,
+                year: document.getElementById("editYear").value,
                 description: document.getElementById("editDescription").value,
             };
 
@@ -128,20 +193,20 @@ function openEditModal(event) {
 }
 
 function openDeleteModal(event) {
-    const bookId = event.target.getAttribute("data-book-id");
-
+    let bookId = event.target.getAttribute("data-book-id");
     deleteBook(bookId); 
 }
 
-function handleSearch() {
-    const searchInput = document.getElementById("searchInput");
-    const searchTerm = searchInput.value.toLowerCase();
 
-    const cards = document.querySelectorAll(".card");
+
+function handleSearch() {
+    let searchInput = document.getElementById("searchInput");
+    let searchTerm = searchInput.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
     let found = false;
 
     cards.forEach((card) => {
-        const title = card.querySelector(".book-title").textContent.toLowerCase();
+        let title = card.querySelector(".book-title").textContent.toLowerCase();
         if (title.includes(searchTerm)) {
             card.style.display = "block"; 
             found = true;
@@ -157,7 +222,7 @@ function handleSearch() {
     }
 }
 
-const searchInput = document.getElementById("searchInput");
+let searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", handleSearch);
 
 function sortBooksByYear(books) {
@@ -169,7 +234,7 @@ function updateBookDisplay(books) {
     displayBooks(books);
 }
 
-const sortByYearButton = document.getElementById("sortByYearButton");
+let sortByYearButton = document.getElementById("sortByYearButton");
 sortByYearButton.addEventListener("click", () => {
     books = sortBooksByYear(books);
     displayBooks(books);
@@ -187,54 +252,46 @@ function updateBookDisplay(books) {
     displayBooks(books);
 }
 
-const genreFilter = document.getElementById("genreFilter");
+let genreFilter = document.getElementById("genreFilter");
 genreFilter.addEventListener("change", () => {
-    const selectedGenre = genreFilter.value;
-    const filteredBooks = filterBooksByGenre(selectedGenre);
+    let selectedGenre = genreFilter.value;
+    let filteredBooks = filterBooksByGenre(selectedGenre);
     updateBookDisplay(filteredBooks);
 });
 
 function openAddBookModal() {
-    const addBookModal = document.getElementById("addBookModal");
+    let addBookModal = document.getElementById("addBookModal");
     addBookModal.style.display = "block";
 }
 
-const closeAddBookModalButton = document.getElementById("closeAddBookModal");
+let closeAddBookModalButton = document.getElementById("closeAddBookModal");
 closeAddBookModalButton.addEventListener("click", () => {
     closeModal();
 });
 
 function closeModal() {
-    const addBookModal = document.getElementById("addBookModal");
+    let addBookModal = document.getElementById("addBookModal");
     addBookModal.style.display = "none";
 }
 
-const addBookButton = document.getElementById("addBookButton");
+let addBookButton = document.getElementById("addBookButton");
 addBookButton.addEventListener("click", () => openAddBookModal());
 
 function handleAddBookFormSubmit(event) {
     event.preventDefault(); 
 
-    const name = document.getElementById("name").value;
-    const pageCount = parseInt(document.getElementById("pageCount").value, 10);
-    const coverImage = document.getElementById("coverImage").value;
-    const author = document.getElementById("author").value;
-    const year = parseInt(document.getElementById("year").value, 10);
-    const description = document.getElementById("description").value;
-    const genre = document.getElementById("genre").value;
+    let name = document.getElementById("name").value;
+    let pageCount = parseInt(document.getElementById("pageCount").value, 10);
+    let coverImage = document.getElementById("coverImage").value;
+    let author = document.getElementById("author").value;
+    let year = parseInt(document.getElementById("year").value, 10);
+    let description = document.getElementById("description").value;
+    let genre = document.getElementById("genre").value;
 
-    const errors = validateInput(name, pageCount, coverImage, author, year, genre);
+    let errors = validateInput(name, pageCount, coverImage, author, year, genre);
 
     if (errors.length === 0) {
-        const newBook = {
-            name,
-            pageCount,
-            coverImg: coverImage,
-            author,
-            year,
-            description,
-            genre,
-        };
+        let newBook = {name, pageCount, coverImg: coverImage, author, year, description, genre,};
 
         fetch(BASE_URL + "/books", {
             method: "POST",
@@ -264,7 +321,7 @@ function handleAddBookFormSubmit(event) {
 }
 
 function validateInput(name, pageCount, coverImage, author, year, genre) {
-    const errors = [];
+    let errors = [];
 
     if (name.length < 3) {
         errors.push("Name must be at least 3 characters long");
@@ -294,11 +351,11 @@ function validateInput(name, pageCount, coverImage, author, year, genre) {
 }
 
 function displayValidationErrors(errors) {
-    const errorList = document.getElementById("errorList");
+    let errorList = document.getElementById("errorList");
     errorList.innerHTML = "";
 
     errors.forEach((error) => {
-        const errorItem = document.createElement("li");
+        let errorItem = document.createElement("li");
         errorItem.textContent = error;
         errorList.appendChild(errorItem);
     }
@@ -307,4 +364,8 @@ function displayValidationErrors(errors) {
 
 const addBookForm = document.getElementById("addBookForm");
 addBookForm.addEventListener("submit", handleAddBookFormSubmit);
+
+
+
+
 

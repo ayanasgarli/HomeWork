@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.increase-button, .decrease-button, .delete-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.increase-button:hover, .decrease-button:hover, .delete-button:hover {
+    background-color: #2980b9;
+}

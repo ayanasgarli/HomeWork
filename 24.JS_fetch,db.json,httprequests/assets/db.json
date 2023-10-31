@@ -4,17 +4,19 @@
       "id": 1,
       "name": "Milenaya Məktublar",
       "genre": "Klassika",
+      "price": "10$",
       "pageCount": 312,
       "coverImg": "https://static.insales-cdn.com/images/products/1/7936/186703616/Kafka-Milena-Kapak-Esas-1.png",
       "author": "Franz Kafka",
       "year": 1952,
-      "description": "Frans Kafkanın aşiq olduğu çex jurnalisti Milena Yesenskayaya ünvanlanmış məktubları daxil edilib. 1920-ci ilin yazında o, F.Kafkanın nəsrini çex dilinə tərcümə etməyə başlayıb, onların yazışmaları və sevgi macəraları da elə o zamandan başlanğıc götürüb və cəmi bir neçə ay davam edib." 
+      "description": "Frans Kafkanın aşiq olduğu çex jurnalisti Milena Yesenskayaya ünvanlanmış məktubları daxil edilib. 1920-ci ilin yazında o, F.Kafkanın nəsrini çex dilinə tərcümə etməyə başlayıb, onların yazışmaları və sevgi macəraları da elə o zamandan başlanğıc götürüb və cəmi bir neçə ay davam edib."
     },
 
     {
       "id": 2,
       "name": "Bəlkə də bu, həqiqətdir…",
       "genre": "Roman",
+      "price": "8$",
       "pageCount": 256,
       "coverImg": "https://static.insales-cdn.com/images/products/1/4806/171070150/c6dfecc44250efd8df4ca163b69a9cc1.jpg",
       "author": "Mark Levi",
@@ -26,6 +28,7 @@
       "id": 3,
       "name": "Cinayət və cəza",
       "genre": "Klassika",
+      "price": "11.90$",
       "pageCount": 640,
       "coverImg": "https://m.media-amazon.com/images/I/81EcXiV-9WL._AC_UF1000,1000_QL80_.jpg",
       "author": "Fyodor Dostoyevski",
@@ -37,6 +40,7 @@
       "id": 4,
       "name": "Anna Karenina",
       "genre": "Klassika",
+      "price": "6.99$",
       "pageCount": 856,
       "coverImg": "https://www.qanun.az/images/news/compressed/2021-08-25-17-05-421629896742.png",
       "author": "Lev Nikolayeviç Tolstoy",
@@ -48,6 +52,7 @@
       "id": 5,
       "name": "Altı nömrəli palata",
       "genre": "Klassika",
+      "price": "5.90$",
       "pageCount": 88,
       "coverImg": "https://www.qanun.az/images/news/compressed/2021-09-14-10-15-061631600106.jpg",
       "author": "Anton Çexov",
@@ -59,6 +64,7 @@
       "id": 6,
       "name": "Yalquzaq",
       "genre": "Klassika",
+      "price": "10$",
       "pageCount": 208,
       "coverImg": "https://pictures.abebooks.com/isbn/9780805012477-us.jpg",
       "author": "Herman Hesse",
@@ -70,17 +76,19 @@
       "id": 7,
       "name": "Yüz ilin tənhalığı",
       "genre": "Realizm, roman",
+      "price": "12$",
       "pageCount": 486,
       "coverImg": "https://bakubookcenter.az/get-product-image?fileId=6631&year=2018&month=08",
       "author": "Qabriel Qarcia Markes",
       "year": 1967,
-      "description":"“Yüz ilin tənhalığı” romanında Buendia nəslinin yaran­ma­sı, yük­sə­lişi, qürubu və məhvi əks etdirilmişdir. Bu nəslin tarixi – hər bir Buendia üzvünün taleyində bu və ya digər şəkildə təzahür edən tən­halıq hekayətidir. Tənhalıq, ailə üzvlərinin bir-birindən aralı düş­­məsi, onların bir-birini anlaya bilməmələri romanda, hə­qi­qətən, mifik xarakter daşıyır."
+      "description": "“Yüz ilin tənhalığı” romanında Buendia nəslinin yaran­ma­sı, yük­sə­lişi, qürubu və məhvi əks etdirilmişdir. Bu nəslin tarixi – hər bir Buendia üzvünün taleyində bu və ya digər şəkildə təzahür edən tən­halıq hekayətidir. Tənhalıq, ailə üzvlərinin bir-birindən aralı düş­­məsi, onların bir-birini anlaya bilməmələri romanda, hə­qi­qətən, mifik xarakter daşıyır."
     },
-
+    
     {
       "id": 8,
       "name": "Diplomat",
       "genre": "Klassika",
+      "price": "11.50$",
       "pageCount": 460,
       "coverImg": "https://static.insales-cdn.com/images/products/1/4023/171069367/large_fa38926482fb0e1c09a73c92b155d063.jpg",
       "author": "Ceyms Oldric",
