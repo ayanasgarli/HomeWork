@@ -1,0 +1,82 @@
+.navbar {
+    background: linear-gradient(120deg, #1DB954, #453f3f);
+    height: 12vh;
+}
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+ul{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px;
+}
+
+.nav-item.login button {
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+    font-size: 18px;
+}
+
+.nav-item.register button{
+    background-color: black;
+    border: 1px solid black;
+    font-size: 18px;
+}
+
+.nav-item.basket, .nav-item.wishlist {
+    position: relative;
+}
+
+.nav-item.basket .nav-link, .nav-item.wishlist .nav-link {
+    position: relative;
+    z-index: 0;
+}
+
+.nav-item.basket::before, .nav-item.wishlist::before {
+    content: "0";
+    position: absolute;
+    right: -10px;
+    color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.search{
+    flex-direction: column;
+    align-items: center;
+}
+.search-singer-input {
+    margin-bottom: 10px;
+}
+
+.sort-by-name-button {
+    background: #FFBC00;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card {
+    margin: 10px;
+    min-height: 360px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
