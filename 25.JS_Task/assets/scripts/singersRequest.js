@@ -1,3 +1,5 @@
+
+// singersRequest.js starts here
 let API_BASE_URL = 'http://localhost:3000';
 
 export async function getSingersAll(){

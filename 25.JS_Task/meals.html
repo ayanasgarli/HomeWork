@@ -42,13 +42,38 @@
     <div class="container mt-4">
         <div class="row search">
             <div class="col-md-6">
-                <input type="text" class="form-control search-singer-input" placeholder="search singer">
-            </div>
-            <div class="col-md-6">
-                <button class="sort-by-name-button">sort by name</button>
+                <input type="text" class="form-control search-meal-input" placeholder="search meal">
+                <button class="sort-by-name-button mt-2">sort by name</button>
+                <button class="btn btn-primary" id="add-meal-button" >add new meal</button>
             </div>
         </div>
-    </div>
+    </div>   
+
+    <div class="modal" id="addSingerModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addSingerModalLabel">Add New Singer</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="addSingerForm" >
+                <p>Name: <input class="form-control search-singer-input" type="text" placeholder="enter singer name" required></p>
+                <p>Genre: <input class="form-control search-singer-input" type="text" placeholder="enter genre" required></p>
+                <p>Age: <input class="form-control search-singer-input" type="number" placeholder="enter singer age" required></p>
+                <p>Nationality: <input class="form-control search-singer-input" type="text" placeholder="enter singer nationality" required></p>
+                <p>Image Link: <input class="form-control search-singer-input" type="url" placeholder="enter singer image" required></p>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="addSingerSubmit">Add Singer</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div class="container mt-4">
         <div class="row" id="card-container">

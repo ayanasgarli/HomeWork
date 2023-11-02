@@ -44,13 +44,51 @@
         <div class="row search">
             <div class="col-md-6">
                 <input type="text" class="form-control search-singer-input" placeholder="search singer">
-            </div>
-            <div class="col-md-6">
-                <button class="sort-by-name-button">sort by name</button>
+                <button class=" btn btn-primary sort-by-name-button">sort by name</button>
+                <button class=" btn btn-primary" id="add-singer-button" >add new singer</button>
             </div>
         </div>
-    </div>
+    </div>   
 
+    <div class="modal" id="add-singer-modal" aria-hidden="true">
+        <div class="modal_wrapper">
+          <h1>Add New Singer</h1>
+          <div>
+            <p>Singer name:</p>
+            <input required class="name" type="text" minlength="3" style="outline: none;" placeholder="Singer name" />
+            <p>Nationality:</p>
+            <input required class="nationality" type="text" style="outline: none;" placeholder="Nationality" />
+            <p>Image link:</p>
+            <input required class="imgagelink" type="text" style="outline: none;" placeholder="Image link" />
+            <p>Genre:</p>
+            <input required class="genre" type="text" style="outline: none;" placeholder="Genre" />
+            <p>Age:</p>
+            <input required class="age" type="number" min="0" max="100" style="outline: none;" placeholder="Age" />
+            <button class="submitBtn" style="background-color: rgb(234, 242, 163); outline: none; padding: 5px;">Add</button>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="modal" id="edit-singer-modal" aria-hidden="true">
+        <div class="modal_wrapper">
+          <h1>Edit Singer</h1>
+          <div>
+            <p>Singer name:</p>
+            <input required class="edit-name" type="text" minlength="3" style="outline: none;" placeholder="Singer name" />
+            <p>Nationality:</p>
+            <input required class="edit-nationality" type="text" style="outline: none;" placeholder="Nationality" />
+            <p>Image link:</p>
+            <input required class="edit-imgagelink" type="text" style="outline: none;" placeholder="Image link" />
+            <p>Genre:</p>
+            <input required class="edit-genre" type="text" style="outline: none;" placeholder="Genre" />
+            <p>Age:</p>
+            <input required class="edit-age" type="number" min="0" max="100" style="outline: none;" placeholder="Age" />
+            <button class="edit-save-button" style="background-color: rgb(234, 242, 163); outline: none; padding: 5px;">Save</button>
+          </div>
+        </div>
+      </div>
+    
     <div class="container mt-4">
         <div class="row" id="card-container">
         </div>
@@ -62,5 +100,6 @@
     <script src="./assets/scripts/singers.js" type="module"></script>
 </body>
 </html>
+
 
 
