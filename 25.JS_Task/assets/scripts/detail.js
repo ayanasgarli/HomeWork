@@ -16,7 +16,6 @@ cardmt.innerHTML=`
   <a class="btn btn-primary home-button" href="singers.html">Home</a>
 </div>
 </div>
-
 `
 
  

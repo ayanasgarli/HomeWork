@@ -2,6 +2,8 @@
 // singersRequest.js starts here
 let API_BASE_URL = 'http://localhost:3000';
 
+export let BASE_URL = 'http://localhost:3000';
+
 export async function getSingersAll(){
     let result;
     await axios.get(API_BASE_URL+"/singers")

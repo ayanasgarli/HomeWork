@@ -14,9 +14,9 @@ function renderMealCards(meals) {
         <div class="card-body">
           <h5 class="card-title">${meal.name}</h5>
           <p class="card-text">Price: <b>${meal.price}</b></p>
-          <button class="btn btn-primary detail-button">Detail</button>
-          <button class="btn btn-danger delete-button"><i class="fa-solid fa-trash"></i></button>
-          <button class="btn btn-warning basket-button"><i class="fa-solid fa-basket-shopping"></i></button>
+          <button class="btn btn-primary detail-button" data-detail-id="${meal.id}" >Details</button>
+          <button class="btn btn-danger delete-button" data-meal-id="${meal.id}"><i class="fa-solid fa-trash"></i></button>
+          <button id=${meal.id} class="btn btn-warning basket-button"><i class="fa-solid fa-basket-shopping"></i></button>
         </div>
       </div>
     `;
@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const meals = await getMealsAll();
     renderMealCards(meals);
 
+
+
     const searchInput = document.querySelector(".search-meal-input");
 
     searchInput.addEventListener("keyup", function () {
@@ -42,14 +44,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       const filteredMeals = meals.filter((meal) =>
         meal.name.toLowerCase().includes(searchTerm)
       );
-      renderSingerCards(filteredMeals);
+      renderMealCards(filteredMeals);
     });
-    
     const sortButton = document.querySelector(".sort-by-name-button");
     sortButton.addEventListener("click", () => {
       const mealCards = document.querySelectorAll(".meal-card");
       const sortedMeals = sortMealsByName([...meals]);
       renderMealCards(sortedMeals);
+    });
+
+    const detailButtons = document.querySelectorAll(".detail-button");
+    detailButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+          window.location.href = `mealsDetail.html?id=${button.getAttribute("data-detail-id")}`;
+      });
     });
 
     const deleteButtons = document.querySelectorAll(".delete-button");
@@ -64,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           showCancelButton: true,
           confirmButtonColor: '#d33',
           cancelButtonColor: '#3085d6',
-          confirmButtonText: 'Yes, delete it'
+          confirmButtonText: 'Yes, delete it' 
         });
 
         if (confirmDelete.isConfirmed) {
@@ -73,14 +81,42 @@ document.addEventListener("DOMContentLoaded", async () => {
             cardToRemove.remove();
           }
 
-          await deleteMeals(mealId);
+          await deleteMeals(singerId);
 
           Swal.fire('Deleted!', 'The meal has been deleted.', 'success');
         }
 
       });
-
     });
+
+// basket
+let basketButtons = document.querySelectorAll(".basket-button")
+// console.log(basketButtons)
+let arr = [] 
+console.log(JSON.parse(localStorage.getItem("basket")))
+if(JSON.parse(localStorage.getItem("basket"))) {
+  arr = JSON.parse(localStorage.getItem("basket"))
+  console.log(arr)
+}
+basketButtons.forEach (btn => {
+  btn.addEventListener("click", function(){
+    // console.log(this.id);
+    // console.log(arr.find((x)=> x.id ==this.id));
+    if(arr.find((x)=> x.id ==this.id)){
+      let elem=arr.find((x)=> x.id ==this.id)
+      elem.count=elem.count+1
+
+      localStorage.setItem("basket", JSON.stringify(arr))
+    }else{
+      let obj = {id:this.id, count:1}
+      arr.push(obj)
+      localStorage.setItem("basket", JSON.stringify(arr))
+    }
+  })
+})
+
+//end basket
+
 
 
   } catch (error) {

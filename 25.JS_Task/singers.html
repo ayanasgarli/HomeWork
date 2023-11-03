@@ -27,7 +27,7 @@
                 <li class="nav-item basket">
                     <a class="nav-link" href="./basket.html">Basket</a>
                 </li>
-                <li class="nav-item wishlist">
+                <li class="nav-item wishlist wishlistCount">
                     <a class="nav-link" href="./wishlist.html">Wishlist</a>
                 </li>
                 <li class="nav-item login mt-1 ">
@@ -45,31 +45,10 @@
             <div class="col-md-6">
                 <input type="text" class="form-control search-singer-input" placeholder="search singer">
                 <button class=" btn btn-primary sort-by-name-button">sort by name</button>
-                <button class=" btn btn-primary" id="add-singer-button" >add new singer</button>
             </div>
         </div>
     </div>   
-
-    <div class="modal" id="add-singer-modal" aria-hidden="true">
-        <div class="modal_wrapper">
-          <h1>Add New Singer</h1>
-          <div>
-            <p>Singer name:</p>
-            <input required class="name" type="text" minlength="3" style="outline: none;" placeholder="Singer name" />
-            <p>Nationality:</p>
-            <input required class="nationality" type="text" style="outline: none;" placeholder="Nationality" />
-            <p>Image link:</p>
-            <input required class="imgagelink" type="text" style="outline: none;" placeholder="Image link" />
-            <p>Genre:</p>
-            <input required class="genre" type="text" style="outline: none;" placeholder="Genre" />
-            <p>Age:</p>
-            <input required class="age" type="number" min="0" max="100" style="outline: none;" placeholder="Age" />
-            <button class="submitBtn" style="background-color: rgb(234, 242, 163); outline: none; padding: 5px;">Add</button>
-          </div>
-        </div>
-      </div>
-      
-
+   
       <div class="modal" id="edit-singer-modal" aria-hidden="true">
         <div class="modal_wrapper">
           <h1>Edit Singer</h1>

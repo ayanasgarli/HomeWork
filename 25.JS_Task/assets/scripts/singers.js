@@ -4,6 +4,7 @@ function renderSingerCards(singers) {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = '';
 
+
   singers.forEach((singer) => {
     const card = document.createElement("div");
     card.classList.add("col-md-3", "mb-4", "singer-card");
@@ -30,6 +31,7 @@ function renderSingerCards(singers) {
 function sortSingersByName(singers) {
   return singers.sort((a, b) => a.name.localeCompare(b.name));
 }
+
 
 
 const editButtons = document.querySelectorAll(".edit-button");
@@ -67,8 +69,6 @@ editButtons.forEach((button) => {
   });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const singers = await getSingersAll();
@@ -93,15 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderSingerCards(sortedSingers);
     });
 
-    const addNewSingerButton = document.getElementById("add-singer-button");
-    const addSingerModal = document.getElementById("add-singer-modal");
-
-    addNewSingerButton.addEventListener("click", () => {
-      addSingerModal.classList.add("show");
-    });
-
-
-
+  
     const deleteButtons = document.querySelectorAll(".delete-button");
     deleteButtons.forEach((button) => {
       button.addEventListener("click", async () => {
@@ -134,6 +126,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let favorites = JSON.parse(localStorage.getItem("cart")) || [];
     let heartButtons = document.querySelectorAll(".favIcon")
+    let wishlistCount = document.getElementsByClassName(".wishlistCount")
+    
     heartButtons.forEach((btn) => {
       btn.addEventListener("click", function () {
         if (!JSON.parse(localStorage.getItem("cart"))) {
@@ -162,10 +156,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           window.location.href = `detail.html?id=${button.getAttribute("data-detail-id")}`;
       });
     });
+
+
   } catch (error) {
     console.error("Error fetching singers:", error);
   }
 });
-// Wishlist sayin artmasi 
-wishlistCount.textContent = JSON.parse(localStorage.getItem("cart")).length;
+
   
