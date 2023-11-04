@@ -31,10 +31,10 @@
                     <a class="nav-link" href="./wishlist.html">Wishlist</a>
                 </li>
                 <li class="nav-item login mt-1 ">
-                    <button class="btn btn-primary">Login</button>
+                    <a href="./login.html"><button class="btn btn-primary">Login</button></a>
                 </li>
                 <li class="nav-item register mt-1">
-                    <button class="btn btn-primary">Register</button>
+                    <a href="./register.html"><button class="btn btn-primary">Register</button></a>
                 </li>
             </ul>
         </div>
@@ -48,30 +48,19 @@
             </div>
         </div>
     </div>   
-   
-      <div class="modal" id="edit-singer-modal" aria-hidden="true">
-        <div class="modal_wrapper">
-          <h1>Edit Singer</h1>
-          <div>
-            <p>Singer name:</p>
-            <input required class="edit-name" type="text" minlength="3" style="outline: none;" placeholder="Singer name" />
-            <p>Nationality:</p>
-            <input required class="edit-nationality" type="text" style="outline: none;" placeholder="Nationality" />
-            <p>Image link:</p>
-            <input required class="edit-imgagelink" type="text" style="outline: none;" placeholder="Image link" />
-            <p>Genre:</p>
-            <input required class="edit-genre" type="text" style="outline: none;" placeholder="Genre" />
-            <p>Age:</p>
-            <input required class="edit-age" type="number" min="0" max="100" style="outline: none;" placeholder="Age" />
-            <button class="edit-save-button" style="background-color: rgb(234, 242, 163); outline: none; padding: 5px;">Save</button>
-          </div>
+
+    <main>
+        <div class="container mt-4">
+            <div class="row" id="card-container">
+            </div>
         </div>
-      </div>
-    
-    <div class="container mt-4">
-        <div class="row" id="card-container">
-        </div>
-    </div>
+        <section id="singers">
+            <div class="container">
+                <div class="row singers-wrapper">
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

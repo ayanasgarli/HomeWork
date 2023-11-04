@@ -1,24 +1,26 @@
 import { getSingersAll, deleteSingers } from "./singersRequest.js";
-
+let favoriteArr = JSON.parse(localStorage.getItem("favorites")) || [];
 function renderSingerCards(singers) {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = '';
 
 
   singers.forEach((singer) => {
+    setupFavoriteButtons();
     const card = document.createElement("div");
     card.classList.add("col-md-3", "mb-4", "singer-card");
 
     const cardHtml = `
-      <div class="card">
+      <div class="card" id="${singer.id}">
         <img src="${singer.imagelink}" class="card-img-top" alt="${singer.name}">
         <div class="card-body">
           <h5 class="card-title">${singer.name}</h5>
           <p class="card-text">${singer.name} is <b> ${singer.nationality} </b></p>
           <button class="btn btn-primary detail-button" data-detail-id="${singer.id}" >Details</button>
-          <button class="btn btn-success edit-button" data-singer-id="${singer.id}"><i class="fa-solid fa-edit"></i></button>
           <button class="btn btn-danger delete-button" data-singer-id="${singer.id}"><i class="fa-solid fa-trash"></i></button>
-          <i class="fa-regular fa-heart fa-2x favIcon id="${card.id}"></i>
+          <a href="#" class="btn btn-outline-danger heart" data-id="${singer.id}">
+          <i class="fa-regular fa-heart ${favoriteArr.some(fav => fav.id === singer.id) ? "fa-solid" : ""}"></i>
+        </a>
           </div>
       </div>
     `;
@@ -28,46 +30,39 @@ function renderSingerCards(singers) {
   });
 }
 
+
+function setupFavoriteButtons() {
+  const heartButtons = document.querySelectorAll(".heart");
+  heartButtons.forEach((heart) => {
+    heart.addEventListener("click", () => {
+      const singerId = heart.getAttribute("data-id");
+      let icon = heart.querySelector("i");
+      const isFavorite = icon.classList.contains("fa-solid");
+
+      if (!isFavorite) {
+        icon.classList.add("fa-solid");
+        favoriteArr.push({ id: singerId });
+        Swal.fire({
+          position: 'bottom-end',
+          icon: 'success',
+          title: `Added to Favorites`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        icon.classList.remove("fa-solid");
+        favoriteArr = favoriteArr.filter((fav) => fav.id !== singerId);
+      }
+
+      localStorage.setItem("favorites", JSON.stringify(favoriteArr));
+    });
+  });
+}
+
 function sortSingersByName(singers) {
   return singers.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-
-
-const editButtons = document.querySelectorAll(".edit-button");
-editButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const singerId = button.getAttribute("data-singer-id");
-    const singerToEdit = singers.find((singer) => singer.id === singerId);
-    
-    const editSingerModal = document.getElementById("edit-singer-modal");
-    editSingerModal.classList.add("show");
-
-    const editNameInput = document.querySelector(".edit-name");
-    const editNationalityInput = document.querySelector(".edit-nationality");
-    const editImageLinkInput = document.querySelector(".edit-imgagelink");
-    const editGenreInput = document.querySelector(".edit-genre");
-    const editAgeInput = document.querySelector(".edit-age");
-
-    editNameInput.value = singerToEdit.name;
-    editNationalityInput.value = singerToEdit.nationality;
-    editImageLinkInput.value = singerToEdit.imagelink;
-    editGenreInput.value = singerToEdit.genre;
-    editAgeInput.value = singerToEdit.age;
-
-    const editSaveButton = document.querySelector(".edit-save-button");
-    editSaveButton.addEventListener("click", () => {
-      singerToEdit.name = editNameInput.value;
-      singerToEdit.nationality = editNationalityInput.value;
-      singerToEdit.imagelink = editImageLinkInput.value;
-      singerToEdit.genre = editGenreInput.value;
-      singerToEdit.age = editAgeInput.value;
-
-      editSingerModal.classList.remove("show");
-      renderSingerCards(singers);
-    });
-  });
-});
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -124,32 +119,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     });
 
-    let favorites = JSON.parse(localStorage.getItem("cart")) || [];
-    let heartButtons = document.querySelectorAll(".favIcon")
-    let wishlistCount = document.getElementsByClassName(".wishlistCount")
-    
-    heartButtons.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        if (!JSON.parse(localStorage.getItem("cart"))) {
-          localStorage.setItem("cart", JSON.stringify([{id:this.id}]));
-          this.classList.replace("fa-regular", "fa-solid");
-        } else {
-          let cardsLocal = JSON.parse(localStorage.getItem("cart"));
-          let found = cardsLocal.find((x) => x.id == this.id);
-          if(found){
-            found.quantity++
-            this.classList.replace("fa-solid", "fa-regular");
-            let updatedCat = cardsLocal.filter((x)=> x.id!= this.id)
-            localStorage.setItem("cart", JSON.stringify(updatedCat))
-            wishlistCount.textContent = JSON.parse(localStorage.getItem("cart")).length
-          } else {
-            this.classList.replace("fa-regular", "fa-solid");
-            localStorage.setItem("cart", JSON.stringify([...cardsLocal, {id:this.id, quantity:1}]))
-            wishlistCount.textContent = JSON.parse(localStorage.getItem("cart")).length
-          }}
-      });
-    });
-
     const detailButtons = document.querySelectorAll(".detail-button");
     detailButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -163,4 +132,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-  
+

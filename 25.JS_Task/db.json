@@ -174,36 +174,30 @@
   "users": [
     {
       "id": 1,
-      "username": "ayansgerli",
-      "password": "parol123",
+      "firstName": "Ayan",
+      "lastName": "Asgarli",
       "email": "ayan@gmail.com",
-      "balance": 100,
-      "orders": [
-        {
-          "id": 3,
-          "totalPrice": 50,
-          "orderDate": "2023-01-15"
-        },
-        {
-          "id": 4,
-          "totalPrice": 30,
-          "orderDate": "2023-02-10"
-        }
-      ]
+      "username": "ayansgerli",
+      "password": "Parol123",
+      "balance": 100
     },
     {
       "id": 2,
-      "username": "shamsasgarli",
-      "password": "adm456",
+      "firstName": "Shams",
+      "lastName": "Asgar",
       "email": "shams@gmail.com",
-      "balance": 75,
-      "orders": [
-        {
-          "id": 5,
-          "totalPrice": 25,
-          "orderDate": "2023-03-05"
-        }
-      ]
+      "username": "shamsasgarli",
+      "password": "Admin456",
+      "balance": 75
+    },
+    {
+      "firstName": "esmer",
+      "lastName": "hasanli",
+      "email": "esmerh@gmail.com",
+      "username": "esmerhasan",
+      "password": "Es12345",
+      "balance": "123",
+      "id": 3
     }
   ]
 }

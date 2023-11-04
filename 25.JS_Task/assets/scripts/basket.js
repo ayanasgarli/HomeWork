@@ -2,7 +2,6 @@ import { BASE_URL } from "./mealsRequest.js";
 
 let basketListCount = document.querySelector(".basketListCount");
 
-
 document.addEventListener("DOMContentLoaded", function () {
   let baskets = [];
   let tbody = document.querySelector("#tbody");
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   "basket",
                   JSON.stringify([...cardsLocal, { id: this.getAttribute("data-id"), count: 1 }])
                 );
-                basketListCount.textContent = parseInt(basketListCount.textContent) + 1; // Update the basket count in the UI
+                basketListCount.textContent = parseInt(basketListCount.textContent) + 1; 
               }
             }
           });

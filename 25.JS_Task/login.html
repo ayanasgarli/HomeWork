@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="./assets/style/login.css">
+    <title>JS Task</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="./singers.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png" width="40" height="40" class="d-inline-block align-top" alt="Spotify Logo">
+                Spotify
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./singers.html">Singers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./meals.html">Meals</a>
+                </li>
+                <li class="nav-item basket">
+                    <a class="nav-link" href="./basket.html">Basket</a>
+                </li>
+                <li class="nav-item wishlist wishlistCount">
+                    <a class="nav-link" href="./wishlist.html">Wishlist</a>
+                </li>
+                <li class="nav-item login mt-1" style="margin-right: 10px;">
+                    <a href="./login.html"><button class="btn btn-success">Login</button></a>
+                </li>
+                <li class="nav-item register mt-1">
+                    <a href="./register.html"><button class="btn btn-success">Register</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="vh-100" style="background-color: #10ad4c;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+              <div class="card" style="border-radius: 1rem;">
+                <div class="row g-0">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    <img src="https://uploads-ssl.webflow.com/5e16e5818479800c3ed2aa4c/5e6ae30e03eb1adf80ffd852_Spotify%20Style%20Tile.png"
+                      alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+      
+                      <form class="form" autocomplete="off">
+      
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                          <i class="fas fa-cubes fa-2x me-3" style="color: orangered;"></i>
+                          <span class="h1 fw-bold mb-0">Your Account</span>
+                        </div>
+      
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+      
+                        <div class="form-outline mb-4">
+                          <input type="email" id="form2Example17" class="form-control form-control-lg" required/>
+                          <label class="form-label" for="form2Example17">Email address</label>
+                        </div>
+      
+                        <div class="form-outline mb-4">
+                          <input type="password" id="form2Example27" class="form-control form-control-lg" required />
+                          <label class="form-label" for="form2Example27">Password</label>
+                        </div>
+      
+                        <div class="pt-1 mb-4">
+                          <input class="btn btn-dark btn-lg btn-block" type="button" value="Login">
+                        </div>
+      
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="./register.html"
+                            style="color: #393f81;">Register here</a></p>
+                      </form>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js" integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/scripts/login.js"></script>
+</body>
+</html>
+

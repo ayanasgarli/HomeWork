@@ -105,7 +105,13 @@ basketButtons.forEach (btn => {
     if(arr.find((x)=> x.id ==this.id)){
       let elem=arr.find((x)=> x.id ==this.id)
       elem.count=elem.count+1
-
+      Swal.fire({
+        position: 'bottom-end',
+        icon: 'success',
+        title: `Added to Basket`,
+        showConfirmButton: false,
+        timer: 1500
+      }); 
       localStorage.setItem("basket", JSON.stringify(arr))
     }else{
       let obj = {id:this.id, count:1}
